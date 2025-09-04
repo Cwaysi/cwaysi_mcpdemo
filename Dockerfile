@@ -21,7 +21,10 @@ COPY server ./server
 
 
 COPY --from=frontend-build /app/nextjs-playground/.next ./nextjs-playground/.next
-COPY --from=frontend-build /app/nextjs-playground/public ./nextjs-playground/public || true
+RUN if [ -d /app/nextjs-playground/public ]; then \
+      cp -r /app/nextjs-playground/public ./nextjs-playground/public; \
+    fi
+
 COPY --from=frontend-build /app/nextjs-playground/package*.json ./nextjs-playground/
 
 RUN npm install -g serve
