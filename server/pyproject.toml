@@ -1,0 +1,16 @@
+
+[project]
+name = "mcp-cv-mail-server"
+version = "0.1.0"
+description = "MCP server that chats about a resume and sends email notifications."
+requires-python = ">=3.10"
+dependencies = [
+  "mcp[cli]",
+  "fastapi",
+  "uvicorn",
+  "pydantic",
+  "python-dotenv",
+]
+
+[project.scripts]
+mcp-cv-mail = "app:main"
