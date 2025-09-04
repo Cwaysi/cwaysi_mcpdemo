@@ -26,7 +26,6 @@ RUN pip install --no-cache-dir -r server/requirements.txt
 COPY server ./server
 
 COPY --from=frontend-build /app/nextjs-playground/.next ./nextjs-playground/.next
-COPY --from=frontend-build /app/nextjs-playground/public ./nextjs-playground/public
 COPY --from=frontend-build /app/nextjs-playground/package*.json ./nextjs-playground/
 
 RUN npm install -g serve
